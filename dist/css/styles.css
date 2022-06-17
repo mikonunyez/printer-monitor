@@ -558,6 +558,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.m-10 {
+  margin: 2.5rem;
+}
+
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -581,12 +585,22 @@ video {
   height: 2.5rem;
 }
 
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .items-center {
   align-items: center;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .bg-fablab-bg {
@@ -610,9 +624,4 @@ video {
 
 .font-thin {
   font-weight: 100;
-}
-
-.text-fablab-red {
-  --tw-text-opacity: 1;
-  color: rgb(117 26 27 / var(--tw-text-opacity));
 }
