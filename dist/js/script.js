@@ -43,7 +43,7 @@ function getPrintState(printer){ //ongoing print status
     .then(response => response.json())
     .then(data => {
         let printState = data;
-        document.getElementById(printerid).innerHTML = printState;
+        document.getElementById(printerid).innerHTML = "Status: " + printState;
     });
 
 }
