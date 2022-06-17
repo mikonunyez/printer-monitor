@@ -8,37 +8,6 @@ setInterval(function() {
     getPrintJob(2);
 }, 1000)
 
-setInterval(function() {
-    getPrinterState(1);
-    getPrinterState(2);
-}, 1000 )
-
-
-function getPrinterState(printer){ //online or offline
-    const printer1 = 'http://10.10.28.228/api/v1/print_job/state';
-    const printer2 = 'http://10.10.28.182/api/v1/print_job/state';
-    const printer1ID = "printer1-state";
-    const printer2ID = "printer2-state";
-
-    if (printer == 1) {
-        var url = printer1;
-        var printerid = printer1ID;
-    }
-    else if (printer == 2) {
-        var url = printer2;
-        var printerid = printer2ID;
-    }
-
-    fetch(url)
-    .then(function(response){
-
-        if (response.status != 200){
-            console.log("Printer " + printer + " is offline");
-            document.getElementById(printerid).innerHTML = "Status: Printer OFFLINE!"
-        }
-    })
-}
-
 
 function getPrintState(printer){ //ongoing print status
     const printer1 = 'http://10.10.28.228/api/v1/print_job/state';
@@ -60,6 +29,10 @@ function getPrintState(printer){ //ongoing print status
     .then(data => {
         let printState = data;
         document.getElementById(printerid).innerHTML = "Status: " + printState;
+    })
+    .catch((error) => {
+        console.log("Printer " + printer + " is offline");
+        document.getElementById(printerid).innerHTML = "Status: Printer OFFLINE!"
     });
 
 }
