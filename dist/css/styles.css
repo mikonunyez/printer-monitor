@@ -585,12 +585,6 @@ video {
   height: 2.5rem;
 }
 
-.w-fit {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
 .items-center {
   align-items: center;
 }
