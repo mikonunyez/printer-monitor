@@ -577,12 +577,24 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .flex {
   display: flex;
 }
 
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-10 {
   height: 2.5rem;
+}
+
+.h-96 {
+  height: 24rem;
 }
 
 .items-center {
