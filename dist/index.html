@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAB LAB | Ultimaker Print Job Monitor</title>
 
+    <!-- css -->
+    <link rel="stylesheet" href="/dist/css/styles.css">
+
+    <!-- javascript -->
+    <script src="/dist/js/script.js"></script>
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/dist/img/icon/apple-icon-57x57.png">
@@ -25,9 +30,92 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/dist/img/icon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
 </head>
-<body>
-    
+
+<body class="bg-neutral-100">
+    <div class="flex justify-center my-2">
+        <a class="mx-7 flex items-center text-center" href="https://fablab.msuiit.edu.ph/">
+            <img class="w-10" src="/dist/img/FABLAB-logo.png" alt="">
+            <h1 class="mx-3 text-xl font-thin">FAB LAB Mindanao</h1>
+        </a>
+        <span class="grow"></span>
+        <button class="mx-7 px-2 rounded-md text-sm bg-neutral-300 hover:bg-neutral-400 transition-colors" onclick="window.location.href='feed.html'">
+            Camera Feed
+        </button>
+    </div>
+    <div class="text-center text-2xl my-10">
+        <h1>Ultimaker Print Job Monitor</h1>
+    </div>
+
+    <div class="bg-white py-10 min-h-screen">
+        <div class="flex justify-center gap-20">
+            <div id="jisi-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
+                <div class="flex justify-center">
+                    <img class="h-48 my-3 px-5" src="/dist/img/s3.png" alt="image of ultimaker s3">
+                </div>
+                <div class="px-5 font-bold">
+                    <span id="printer-jisi-indicator" class="text-green-400">•</span>
+                    <span> Jisi (S3)</span>
+                </div>
+                <div class="px-5 text-sm">
+                    <p>
+                        <span>Printer </span>
+                        <span id="printer-jisi-state">online</span>
+                    </p>
+                    <p>
+                        <span>Address: </span>
+                        <span id="printer-jisi-ip">xx.xx.xxx.xxx</span>
+                    </p>
+                    <p class="mt-5">
+                        <span>Status: </span>
+                        <span id="printer-jisi-status">Printing</span>
+                    </p>
+                    <p>
+                        <span>Filename: </span>
+                        <span id="printer-jisi-printjob">UMS3_temp</span>
+                    </p>
+                    <p class="mt-5">
+                        <p id="printer-jisi-remainingTime" class="text-lg text-center">6:09:42</p>
+                        <p class="text-center">time remaining</p>
+                    </p>
+                </div>
+            </div>
+            <div id="dx-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
+                <div class="flex justify-center">
+                    <img class="h-48 my-3 px-5" src="/dist/img/s3.png" alt="image of ultimaker s3">
+                </div>
+                <div class="px-5 font-bold">
+                    <span id="printer-jisi-indicator" class="text-red-400">•</span>
+                    <span> DX (S3)</span>
+                </div>
+                <div class="px-5 text-sm">
+                    <p>
+                        <span>Printer </span>
+                        <span id="printer-dx-state">offline</span>
+                    </p>
+                    <p>
+                        <span>Address: </span>
+                        <span id="printer-dx-ip">xx.xx.xxx.xxx</span>
+                    </p>
+                    <p class="mt-5">
+                        <span>Status: </span>
+                        <span id="printer-dx-status"></span>
+                    </p>
+                    <p>
+                        <span>Filename: </span>
+                        <span id="printer-dx-printjob"></span>
+                    </p>
+                    <p class="mt-5">
+                        <p id="printer-dx-remainingTime" class="text-lg text-center"></p>
+                        <p class="text-center">time remaining</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        
+    </footer>
 </body>
 </html>
