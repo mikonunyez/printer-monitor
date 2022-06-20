@@ -50,9 +50,6 @@ function getPrintInfoTime(printer){
         let remainingTime = totalTime - elapsedTime;
 
         document.getElementById(printerid).innerHTML = "Remaining time: " + secondsToHHMMSS(remainingTime); 
-        // console.log("Elapsed time: " + printElapsedTime);
-        // console.log("Total time: " + printTotalTime);
-        // console.log("Remaining time: " + printRemainingTime);
     })
 }
 
