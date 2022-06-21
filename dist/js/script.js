@@ -56,7 +56,8 @@ function getPrinterStatus(printer){
         .catch((error) => {
             const printerState = printer_state_id
             printerState.firstChild.nodeValue = "offline"
-            printer
+            printer_indicator_id.classList.remove("text-green-400")
+            printer_indicator_id.classList.add("text-red-400")
             console.log("Printer " + printer + " offline")
         })
 }
