@@ -94,6 +94,8 @@ function getPrintjobInfo(printer){
     fetch(url)
         .then(response => {
             if (!response.ok){
+                printjob_id.firstChild.nodeValue = " "
+                remainingTime_id.firstChild.nodeValue = " "
                 console.log("no print job for printer " + printer)
             }
             else {
