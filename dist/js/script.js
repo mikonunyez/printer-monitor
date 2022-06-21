@@ -37,16 +37,12 @@ function getPrinterStatus(printer){
     fetch(url)
         .then(response => {
             if (!response.ok){
-                const printerState = printer_state_id
-
-                printerState.firstChild.nodeValue = "offline"
-                console.log("Printer offline")
             }
-            else{
+            else {
                 response.json()
                 .then(data => {
                     let printerStatus = data
-        
+                    
                     // changes the online/offline status of the printer
                     printer_state_id.firstChild.nodeValue = "online"
                     printer_indicator_id.classList.remove("text-red-400")
@@ -58,7 +54,10 @@ function getPrinterStatus(printer){
             }
         })
         .catch((error) => {
-            console.log("Failed to fetch")
+            const printerState = printer_state_id
+            printerState.firstChild.nodeValue = "offline"
+            printer
+            console.log("Printer " + printer + " offline")
         })
 }
 
@@ -67,20 +66,34 @@ function getPrintjobInfo(printer){
     const printer_jisi = "http://10.10.28.182/api/v1/print_job"
     const printer_dexter = "http://10.10.28.48/api/v1/print_job"
 
+    const dx_printjob_id = document.getElementById("printer-dx-printjob")
+    const jisi_printjob_id = document.getElementById("printer-jisi-printjob")
+    const dexter_printjob_id = document.getElementById("printer-dexter-printjob")
+
+    const dx_time_id = document.getElementById("printer-dx-remainingTime")
+    const jisi_time_id = document.getElementById("printer-jisi-remainingTime")
+    const dexter_time_id = document.getElementById("printer-dexter-remainingTime")
+
     if (printer == "dx"){
         var url = printer_dx
+        var printjob_id = dx_printjob_id
+        var remainingTime_id = dx_time_id
     }
     else if (printer == "jisi"){
         var url = printer_jisi
+        var printjob_id = jisi_printjob_id
+        var remainingTime_id = jisi_time_id
     }
     else if (printer == "dexter"){
         var url = printer_dexter
+        var printjob_id = dexter_printjob_id
+        var remainingTime_id = dexter_time_id
     }
 
     fetch(url)
-        .then(function(response){
+        .then(response => {
             if (!response.ok){
-                console.log("no print job")
+                console.log("no print job for printer " + printer)
             }
             else {
                 response.json()
@@ -88,14 +101,14 @@ function getPrintjobInfo(printer){
                     let filename = data.name
                     let timeRemaining = data.time_total - data.time_elapsed
 
-                    document.getElementById("printer-dx-printjob").firstChild.nodeValue = filename
-                    document.getElementById("printer-dx-remainingTime").firstChild.nodeValue = secondsToHHMMSS(timeRemaining)
+                    printjob_id.firstChild.nodeValue = filename
+                    remainingTime_id.firstChild.nodeValue = secondsToHHMMSS(timeRemaining)
                     console.log(secondsToHHMMSS(timeRemaining))
                 })
             }
         })
         .catch((error) => {
-            console.log("failed to fetch")
+            // console.log("failed to fetch")
         })
 }
 
