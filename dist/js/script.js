@@ -54,8 +54,8 @@ function getPrinterStatus(printer){
             }
         })
         .catch((error) => {
-            const printerState = printer_state_id
-            printerState.firstChild.nodeValue = "offline"
+            printer_status_id.firstChild.nodeValue = " "
+            printer_state_id.firstChild.nodeValue = "offline"
             printer_indicator_id.classList.remove("text-green-400")
             printer_indicator_id.classList.add("text-red-400")
             console.log("Printer " + printer + " offline")
@@ -108,7 +108,8 @@ function getPrintjobInfo(printer){
             }
         })
         .catch((error) => {
-            // console.log("failed to fetch")
+            printjob_id.firstChild.nodeValue = " "
+            remainingTime_id.firstChild.nodeValue = " "
         })
 }
 
