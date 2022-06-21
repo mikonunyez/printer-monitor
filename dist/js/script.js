@@ -103,7 +103,6 @@ function getPrintjobInfo(printer){
 
                     printjob_id.firstChild.nodeValue = filename
                     remainingTime_id.firstChild.nodeValue = secondsToHHMMSS(timeRemaining)
-                    console.log(secondsToHHMMSS(timeRemaining))
                 })
             }
         })
