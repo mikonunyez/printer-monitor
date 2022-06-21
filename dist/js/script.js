@@ -101,9 +101,18 @@ function getPrintjobInfo(printer){
                 .then(data=> {
                     let filename = data.name
                     let timeRemaining = data.time_total - data.time_elapsed
+                    console.log(data.result)
+                    if(data.result == "Finished"){
+                        printjob_id.firstChild.nodeValue = data.result
+                        remainingTime_id.firstChild.nodeValue = "00:00:00"
+                    }
+                    else{
+                        remainingTime_id.firstChild.nodeValue = secondsToHHMMSS(timeRemaining)
+
+                    }
 
                     printjob_id.firstChild.nodeValue = filename
-                    remainingTime_id.firstChild.nodeValue = secondsToHHMMSS(timeRemaining)
+
                 })
             }
         })
