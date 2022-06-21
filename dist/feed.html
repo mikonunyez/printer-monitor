@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/dist/css/styles.css">
 
     <!-- javascript -->
-    <script src="/dist/js/script.js"></script>
+    <!-- <script src="/dist/js/script.js"></script> -->
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/dist/img/icon/apple-icon-57x57.png">
@@ -31,7 +31,34 @@
     <meta name="msapplication-TileImage" content="/dist/img/icon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
-    
+<body class="bg-neutral-100">
+    <div class="flex justify-center my-2">
+        <a class="mx-7 flex items-center text-center" href="https://fablab.msuiit.edu.ph/">
+            <img class="w-10" src="/dist/img/FABLAB-logo.png" alt="">
+            <h1 class="mx-3 text-xl font-thin">FAB LAB Mindanao</h1>
+        </a>
+        <span class="grow"></span>
+        <button class="mx-7 px-2 rounded-md text-sm bg-neutral-300 hover:bg-neutral-400 transition-colors" onclick="window.location.href='index.html'">
+            Home
+        </button>
+    </div>
+    <div class="text-center text-2xl my-10">
+        <h1>Camera Feed</h1>
+    </div>
+
+    <div class="bg-white min-h-screen flex justify-center gap-10 p-10">
+        <div>
+            <h1>
+                DX
+            </h1>
+            <iframe class="h-96 aspect-video" src="http://10.10.28.228:8080/?action=stream" frameborder="0"></iframe>
+        </div>
+        <div>
+            <h1>
+                Jisi
+            </h1>
+            <iframe class="h-96 aspect-video" src="http://10.10.28.128:8080/?action=stream" frameborder="0"></iframe>
+        </div>
+    </div>
 </body>
 </html>

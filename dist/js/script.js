@@ -10,26 +10,28 @@ function getPrinterStatus(printer){
     }
 
     fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            let printerStatus = data
+        .then(response => {
+            if (!response.ok){
+                const printerState = document.getElementById("printer-dx-state")
 
-            // changes the online/offline status of the printer
-            document.getElementById("printer-dx-state").firstChild.nodeValue = "online"
-            document.getElementById("printer-dx-indicator").classList.remove("text-red-400")
-            document.getElementById("printer-dx-indicator").classList.add("text-green-400")
-            
-            // updates the printer printing status
-            document.getElementById("printer-dx-status").firstChild.nodeValue = printerStatus
-            console.log(printerStatus)
+                printerState.firstChild.nodeValue = "offline"
+                console.log("Printer offline")
+            }
+            else{
+                response.json()
+                .then(data => {
+                    let printerStatus = data
+        
+                    // changes the online/offline status of the printer
+                    document.getElementById("printer-dx-state").firstChild.nodeValue = "online"
+                    document.getElementById("printer-dx-indicator").classList.remove("text-red-400")
+                    document.getElementById("printer-dx-indicator").classList.add("text-green-400")
+                    
+                    // updates the printer printing status
+                    document.getElementById("printer-dx-status").firstChild.nodeValue = data
+                })
+            }
         })
-        .catch(function(){
-            const printerState = document.getElementById("printer-dx-state")
-
-            printerState.firstChild.nodeValue = "offline"
-            console.log("Printer offline")
-        })
-
 }
 
 function getPrintjobInfo(printer){
@@ -75,4 +77,4 @@ function secondsToHHMMSS(seconds){
 }
 
 getPrinterStatus("dx")
-getPrintjobInfo("dx")
+// getPrintjobInfo("dx")
