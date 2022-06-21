@@ -4,41 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Printer Monitor</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <title>FAB LAB | Ultimaker Print Job Monitor</title>
 
-    <script src="./js/script.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="/dist/css/styles.css">
+
+    <!-- javascript -->
+    <script src="/dist/js/script.js"></script>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/dist/img/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/dist/img/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/dist/img/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/dist/img/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/dist/img/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/dist/img/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/dist/img/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/dist/img/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/dist/img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/dist/img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/dist/img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/dist/img/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/dist/img/icon/favicon-16x16.png">
+    <link rel="manifest" href="/dist/img/icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/dist/img/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
-<body class="bg-fablab-bg">
-    <div class="text-center">
-        <div class="flex justify-center my-3">
-            <a href="https://fablab.msuiit.edu.ph/" class="flex items-center">
-                <img src="https://lh6.googleusercontent.com/ocmKJgBNJLbmLM1bsHaPMplfI361VWuYP7LrehyoZ7EfxK-kHrUewA4Dnay26uK26IOnPQ=w16383" alt="FAB LAB Mindanao logo" class="h-10">
-                <h1 class="text-2xl font-thin mx-2">FAB LAB Mindanao</h1>
-            </a>
-        </div>
-        <p class="text-lg my-5">3D Printer Monitoring Board</p>
+<body class="bg-neutral-100">
+    <div class="flex justify-center my-2">
+        <a class="mx-7 flex items-center text-center" href="https://fablab.msuiit.edu.ph/">
+            <img class="w-10" src="/dist/img/FABLAB-logo.png" alt="">
+            <h1 class="mx-3 text-xl font-thin">FAB LAB Mindanao</h1>
+        </a>
+        <span class="grow"></span>
+        <button class="mx-7 px-2 rounded-md text-sm bg-neutral-300 hover:bg-neutral-400 transition-colors" onclick="window.location.href='feed.html'">
+            Camera Feed
+        </button>
+    </div>
+    <div class="text-center text-2xl my-10">
+        <h1>Ultimaker Print Job Monitor</h1>
     </div>
 
-    <div>
-        <div class="text-left flex justify-center gap-10 m-10 mt-20 ">
-            <div>
-                <iframe class="h-96 aspect-video" src="http://10.10.28.228:8080/?action=stream" frameborder="0"></iframe>
-                <p>Printer IP: 10.10.28.228</p>
-                <p id="printer1-state"></p>
-                <p id="printer1-job"></p>
-                <p id="printer1-time"></p>
+    <div class="bg-white py-10 min-h-screen">
+        <div class="flex justify-center gap-20">
+            <div id="dx-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
+                <div class="flex justify-center">
+                    <img class="h-48 my-3 px-5" src="/dist/img/s3.png" alt="image of ultimaker s3">
+                </div>
+                <div class="px-5 font-bold">
+                    <span id="printer-dx-indicator" class="text-red-400">•</span>
+                    <span> DX (S3)</span>
+                </div>
+                <div class="px-5 text-sm">
+                    <p>
+                        <span>Printer </span>
+                        <span id="printer-dx-state">offline</span>
+                    </p>
+                    <p>
+                        <span>Address: </span>
+                        <span id="printer-dx-ip">10.10.28.228</span>
+                    </p>
+                    <p class="mt-5">
+                        <span>Status: </span>
+                        <span id="printer-dx-status">offline</span>
+                    </p>
+                    <p>
+                        <span>Filename: </span>
+                        <span id="printer-dx-printjob"> </span>
+                    </p>
+                    <p class="mt-5">
+                        <p id="printer-dx-remainingTime" class="text-lg text-center"> </p>
+                        <p class="text-center">time remaining</p>
+                    </p>
+                </div>
             </div>
-            <div>
-                <iframe class="h-96 aspect-video" src="http://10.10.28.182:8080/?action=stream" frameborder="0"></iframe>
-                <p>Printer IP: 10.10.28.182</p>
-                <p id="printer2-state"></p>
-                <p id="printer2-job"></p>
-                <p id="printer2-time"></p>
+            <div id="jisi-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
+                <div class="flex justify-center">
+                    <img class="h-48 my-3 px-5" src="/dist/img/s3.png" alt="image of ultimaker s3">
+                </div>
+                <div class="px-5 font-bold">
+                    <span id="printer-jisi-indicator" class="text-red-400">•</span>
+                    <span> Jisi (S3)</span>
+                </div>
+                <div class="px-5 text-sm">
+                    <p>
+                        <span>Printer </span>
+                        <span id="printer-jisi-state">offline</span>
+                    </p>
+                    <p>
+                        <span>Address: </span>
+                        <span id="printer-jisi-ip">10.10.28.182</span>
+                    </p>
+                    <p class="mt-5">
+                        <span>Status: </span>
+                        <span id="printer-jisi-status">offline</span>
+                    </p>
+                    <p>
+                        <span>Filename: </span>
+                        <span id="printer-jisi-printjob"> </span>
+                    </p>
+                    <p class="mt-5">
+                        <p id="printer-jisi-remainingTime" class="text-lg text-center"> </p>
+                        <p class="text-center">time remaining</p>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer>
+        
+    </footer>
 </body>
-
 </html>
