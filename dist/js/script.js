@@ -1,6 +1,7 @@
 function getPrinterStatus(printer){
     const printer_dx = "http://10.10.28.228/api/v1/printer/status"
     const printer_jisi = "http://10.10.28.182/api/v1/printer/status"
+    const printer_dexter = "http://10.10.28.48/api/v1/printer/status"
 
     const dx_state_id = document.getElementById("printer-dx-state")
     const dx_indicator_id = document.getElementById("printer-dx-indicator")
@@ -10,17 +11,27 @@ function getPrinterStatus(printer){
     const jisi_indicator_id = document.getElementById("printer-jisi-indicator")
     const jisi_status_id = document.getElementById("printer-jisi-status")
 
+    const dexter_state_id = document.getElementById("printer-dexter-state")
+    const dexter_indicator_id = document.getElementById("printer-dexter-indicator")
+    const dexter_status_id = document.getElementById("printer-dexter-status")
+
     if (printer == "dx"){
-        var url = printer_dx;
+        var url = printer_dx
         var printer_state_id = dx_state_id
         var printer_indicator_id = dx_indicator_id
         var printer_status_id = dx_satus_id
     }
     else if (printer == "jisi"){
-        var url = printer_jisi;
+        var url = printer_jisi
         var printer_state_id = jisi_state_id
         var printer_indicator_id = jisi_indicator_id
         var printer_status_id = jisi_status_id
+    }
+    else if (printer == "dexter"){
+        var url = printer_dexter
+        var printer_state_id = dexter_state_id
+        var printer_indicator_id = dexter_indicator_id
+        var printer_status_id = dexter_status_id
     }
 
     fetch(url)
@@ -103,4 +114,7 @@ setInterval(function(){
 
     getPrinterStatus("jisi")
     getPrintjobInfo("jisi")
+
+    getPrinterStatus("dexter")
+    getPrintjobInfo("dexter")
 }, 1000)
