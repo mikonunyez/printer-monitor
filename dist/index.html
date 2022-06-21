@@ -49,43 +49,12 @@
 
     <div class="bg-white py-10 min-h-screen">
         <div class="flex justify-center gap-20">
-            <div id="jisi-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
-                <div class="flex justify-center">
-                    <img class="h-48 my-3 px-5" src="/dist/img/s3.png" alt="image of ultimaker s3">
-                </div>
-                <div class="px-5 font-bold">
-                    <span id="printer-jisi-indicator" class="text-green-400">•</span>
-                    <span> Jisi (S3)</span>
-                </div>
-                <div class="px-5 text-sm">
-                    <p>
-                        <span>Printer </span>
-                        <span id="printer-jisi-state">online</span>
-                    </p>
-                    <p>
-                        <span>Address: </span>
-                        <span id="printer-jisi-ip">xx.xx.xxx.xxx</span>
-                    </p>
-                    <p class="mt-5">
-                        <span>Status: </span>
-                        <span id="printer-jisi-status">Printing</span>
-                    </p>
-                    <p>
-                        <span>Filename: </span>
-                        <span id="printer-jisi-printjob">UMS3_temp</span>
-                    </p>
-                    <p class="mt-5">
-                        <p id="printer-jisi-remainingTime" class="text-lg text-center">6:09:42</p>
-                        <p class="text-center">time remaining</p>
-                    </p>
-                </div>
-            </div>
             <div id="dx-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
                 <div class="flex justify-center">
                     <img class="h-48 my-3 px-5" src="/dist/img/s3.png" alt="image of ultimaker s3">
                 </div>
                 <div class="px-5 font-bold">
-                    <span id="printer-jisi-indicator" class="text-red-400">•</span>
+                    <span id="printer-dx-indicator" class="text-red-400">•</span>
                     <span> DX (S3)</span>
                 </div>
                 <div class="px-5 text-sm">
@@ -95,7 +64,7 @@
                     </p>
                     <p>
                         <span>Address: </span>
-                        <span id="printer-dx-ip">xx.xx.xxx.xxx</span>
+                        <span id="printer-dx-ip">10.10.28.228</span>
                     </p>
                     <p class="mt-5">
                         <span>Status: </span>
@@ -107,6 +76,37 @@
                     </p>
                     <p class="mt-5">
                         <p id="printer-dx-remainingTime" class="text-lg text-center"></p>
+                        <p class="text-center">time remaining</p>
+                    </p>
+                </div>
+            </div>
+            <div id="jisi-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
+                <div class="flex justify-center">
+                    <img class="h-48 my-3 px-5" src="/dist/img/s3.png" alt="image of ultimaker s3">
+                </div>
+                <div class="px-5 font-bold">
+                    <span id="printer-jisi-indicator" class="text-red-400">•</span>
+                    <span> Jisi (S3)</span>
+                </div>
+                <div class="px-5 text-sm">
+                    <p>
+                        <span>Printer </span>
+                        <span id="printer-jisi-state">offline</span>
+                    </p>
+                    <p>
+                        <span>Address: </span>
+                        <span id="printer-jisi-ip">xx.xx.xxx.xxx</span>
+                    </p>
+                    <p class="mt-5">
+                        <span>Status: </span>
+                        <span id="printer-jisi-status"></span>
+                    </p>
+                    <p>
+                        <span>Filename: </span>
+                        <span id="printer-jisi-printjob"></span>
+                    </p>
+                    <p class="mt-5">
+                        <p id="printer-jisi-remainingTime" class="text-lg text-center"></p>
                         <p class="text-center">time remaining</p>
                     </p>
                 </div>
