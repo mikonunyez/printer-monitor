@@ -2,11 +2,25 @@ function getPrinterStatus(printer){
     const printer_dx = "http://10.10.28.228/api/v1/printer/status"
     const printer_jisi = "http://10.10.28.182/api/v1/printer/status"
 
+    const dx_state_id = document.getElementById("printer-dx-state")
+    const dx_indicator_id = document.getElementById("printer-dx-indicator")
+    const dx_satus_id = document.getElementById("printer-dx-status")
+
+    const jisi_state_id = document.getElementById("printer-jisi-state")
+    const jisi_indicator_id = document.getElementById("printer-jisi-indicator")
+    const jisi_status_id = document.getElementById("printer-jisi-status")
+
     if (printer == "dx"){
         var url = printer_dx;
+        var printer_state_id = dx_state_id
+        var printer_indicator_id = dx_indicator_id
+        var printer_status_id = dx_satus_id
     }
     else if (printer == "jisi"){
         var url = printer_jisi;
+        var printer_state_id = jisi_state_id
+        var printer_indicator_id = jisi_indicator_id
+        var printer_status_id = jisi_status_id
     }
 
     fetch(url)
@@ -23,14 +37,17 @@ function getPrinterStatus(printer){
                     let printerStatus = data
         
                     // changes the online/offline status of the printer
-                    document.getElementById("printer-dx-state").firstChild.nodeValue = "online"
-                    document.getElementById("printer-dx-indicator").classList.remove("text-red-400")
-                    document.getElementById("printer-dx-indicator").classList.add("text-green-400")
+                    printer_state_id.firstChild.nodeValue = "online"
+                    printer_indicator_id.classList.remove("text-red-400")
+                    printer_indicator_id.classList.add("text-green-400")
                     
                     // updates the printer printing status
-                    document.getElementById("printer-dx-status").firstChild.nodeValue = data
+                    printer_status_id.firstChild.nodeValue = printerStatus
                 })
             }
+        })
+        .catch((error) => {
+            console.log("Failed to fetch")
         })
 }
 
@@ -48,7 +65,7 @@ function getPrintjobInfo(printer){
     fetch(url)
         .then(function(response){
             if (!response.ok){
-                console.log("dx has no print job")
+                console.log("no print job")
             }
             else {
                 response.json()
@@ -58,8 +75,12 @@ function getPrintjobInfo(printer){
 
                     document.getElementById("printer-dx-printjob").firstChild.nodeValue = filename
                     document.getElementById("printer-dx-remainingTime").firstChild.nodeValue = secondsToHHMMSS(timeRemaining)
+                    console.log(secondsToHHMMSS(timeRemaining))
                 })
             }
+        })
+        .catch((error) => {
+            console.log("failed to fetch")
         })
 }
 
@@ -76,5 +97,10 @@ function secondsToHHMMSS(seconds){
     return hours+':'+minutes+':'+seconds;
 }
 
-getPrinterStatus("dx")
-// getPrintjobInfo("dx")
+setInterval(function(){
+    getPrinterStatus("dx")
+    getPrintjobInfo("dx")
+
+    getPrinterStatus("jisi")
+    getPrintjobInfo("jisi")
+}, 1000)
