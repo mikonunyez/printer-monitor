@@ -37,7 +37,7 @@ function getPrinterStatus(printer){
     fetch(url)
         .then(response => {
             if (!response.ok){
-                const printerState = document.getElementById("printer-dx-state")
+                const printerState = printer_state_id
 
                 printerState.firstChild.nodeValue = "offline"
                 console.log("Printer offline")
@@ -65,12 +65,16 @@ function getPrinterStatus(printer){
 function getPrintjobInfo(printer){
     const printer_dx = "http://10.10.28.228/api/v1/print_job"
     const printer_jisi = "http://10.10.28.182/api/v1/print_job"
+    const printer_dexter = "http://10.10.28.48/api/v1/print_job"
 
     if (printer == "dx"){
-        var url = printer_dx;
+        var url = printer_dx
     }
     else if (printer == "jisi"){
-        var url = printer_jisi;
+        var url = printer_jisi
+    }
+    else if (printer == "dexter"){
+        var url = printer_dexter
     }
 
     fetch(url)
