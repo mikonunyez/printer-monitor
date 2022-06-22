@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.4 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -587,12 +587,8 @@ video {
   margin-top: 1.25rem;
 }
 
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mt-auto {
-  margin-top: auto;
+.inline-block {
+  display: inline-block;
 }
 
 .flex {
@@ -611,10 +607,6 @@ video {
   height: 12rem;
 }
 
-.h-60 {
-  height: 15rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -627,12 +619,22 @@ video {
   width: 13rem;
 }
 
-.grow {
-  flex-grow: 1;
+.w-36 {
+  width: 9rem;
 }
 
-.flex-col {
-  flex-direction: column;
+.max-w-fit {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.grow {
+  flex-grow: 1;
 }
 
 .flex-wrap {
@@ -657,6 +659,12 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .rounded-md {
