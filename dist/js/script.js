@@ -1,3 +1,10 @@
+// function getOnlinePrinters(){}
+
+// function getOfflinePrinters(){}
+
+// function getIdlePrinters(){}
+
+
 function getPrinterStatus(printer){
     const printer_dx = "http://10.10.28.228/api/v1/printer/status"
     const printer_jisi = "http://10.10.28.182/api/v1/printer/status"
