@@ -1,9 +1,25 @@
 function getPrinterStatus(printer){
+    // S5
     const printer_dx = "http://10.10.28.228/api/v1/printer/status"
+
+    // S3
     const printer_jisi = "http://10.10.28.182/api/v1/printer/status"
     const printer_dexter = "http://10.10.28.48/api/v1/printer/status"
     const printer_gee = "http://10.10.28.57/api/v1/printer/status"
+    const printer_archie = "http://10.10.141.195/api/v1/printer/status"
+
+    // 3 extended
     const printer_raphael = "http://10.10.28.219/api/v1/printer/status"
+    const printer_michaelangelo = "http://10.10.141.196/api/v1/printer/status"
+
+    const archie_state_id = document.getElementById("printer-archie-state")
+    const archie_indicator_id = document.getElementById("printer-archie-indicator")
+    const archie_status_id = document.getElementById("printer-archie-status")
+
+    const michaelangelo_state_id = document.getElementById("printer-michaelangelo-state")
+    const michaelangelo_indicator_id = document.getElementById("printer-michaelangelo-indicator")
+    const michaelangelo_status_id = document.getElementById("printer-michaelangelo-status")
+
 
     const raphael_state_id = document.getElementById("printer-raphael-state")
     const raphael_indicator_id = document.getElementById("printer-raphael-indicator")
@@ -49,11 +65,23 @@ function getPrinterStatus(printer){
         var printer_indicator_id = gee_indicator_id
         var printer_status_id = gee_status_id
     }
+    else if(printer == "archie"){
+        var url = printer_archie
+        var printer_state_id = archie_state_id
+        var printer_indicator_id = archie_indicator_id
+        var printer_status_id = archie_status_id
+    }
     else if (printer == "raphael"){
         var url = printer_raphael
         var printer_state_id = raphael_state_id
         var printer_indicator_id = raphael_indicator_id
         var printer_status_id = raphael_status_id
+    }
+    else if (printer == "michaelangelo"){
+        var url = printer_michaelangelo
+        var printer_state_id = michaelangelo_state_id
+        var printer_indicator_id = michaelangelo_indicator_id
+        var printer_status_id = michaelangelo_status_id
     }
 
     fetch(url)
@@ -89,19 +117,25 @@ function getPrintjobInfo(printer){
     const printer_jisi = "http://10.10.28.182/api/v1/print_job"
     const printer_dexter = "http://10.10.28.48/api/v1/print_job"
     const printer_gee = "http://10.10.28.57/api/v1/print_job"
+    const printer_archie = "http://10.10.141.195/api/v1/print_job"
     const printer_raphael = "http://10.10.28.219/api/v1/print_job"
+    const printer_michaelangelo = "http://10.10.141.196/api/v1/print_job"
 
     const dx_printjob_id = document.getElementById("printer-dx-printjob")
     const jisi_printjob_id = document.getElementById("printer-jisi-printjob")
     const dexter_printjob_id = document.getElementById("printer-dexter-printjob")
     const gee_printjob_id = document.getElementById("printer-gee-printjob")
+    const archie_printjob_id = document.getElementById("printer-archie-printjob")
     const raphael_printjob_id = document.getElementById("printer-raphael-printjob")
+    const michaelangelo_printjob_id = document.getElementById("printer-michaelangelo-printjob")
 
     const dx_time_id = document.getElementById("printer-dx-remainingTime")
     const jisi_time_id = document.getElementById("printer-jisi-remainingTime")
     const dexter_time_id = document.getElementById("printer-dexter-remainingTime")
     const gee_time_id = document.getElementById("printer-gee-remainingTime")
+    const archie_time_id = document.getElementById("printer-archie-remainingTime")
     const raphael_time_id = document.getElementById("printer-raphael-remainingTime")
+    const michaelangelo_time_id = document.getElementById("printer-michaelangelo-remainingTime")
 
     if (printer == "dx"){
         var url = printer_dx
@@ -123,10 +157,20 @@ function getPrintjobInfo(printer){
         var printjob_id = gee_printjob_id
         var remainingTime_id = gee_time_id
     }
+    else if (printer == "archie"){
+        var url = printer_archie
+        var printjob_id = archie_printjob_id
+        var remainingTime_id = archie_time_id
+    }
     else if (printer == "raphael"){
         var url = printer_raphael
         var printjob_id = raphael_printjob_id
         var remainingTime_id = raphael_time_id
+    }
+    else if (printer == "michaelangelo"){
+        var url = printer_michaelangelo
+        var printjob_id = michaelangelo_printjob_id
+        var remainingTime_id = michaelangelo_time_id
     }
 
     fetch(url)
@@ -187,7 +231,13 @@ setInterval(function(){
 
     getPrinterStatus("gee")
     getPrintjobInfo("gee")
+
+    getPrinterStatus("archie")
+    getPrintjobInfo("archie")
     
     getPrinterStatus("raphael")
     getPrintjobInfo("raphael")
+
+    getPrinterStatus("michaelangelo")
+    getPrintjobInfo("michaelangelo")
 }, 1000)

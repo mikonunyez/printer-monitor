@@ -643,6 +643,15 @@ video {
   gap: 5rem;
 }
 
+.gap-x-10 {
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+
+.gap-y-0 {
+  row-gap: 0px;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
