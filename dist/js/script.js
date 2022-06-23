@@ -11,6 +11,7 @@ function getPrinterStatus(printer){
     // 3 extended
     const printer_raphael = "http://10.10.28.219/api/v1/printer/status"
     const printer_michaelangelo = "http://10.10.141.196/api/v1/printer/status"
+    const printer_donatello = "http://10.10.28.154/api/v1/printer/status"
 
     const archie_state_id = document.getElementById("printer-archie-state")
     const archie_indicator_id = document.getElementById("printer-archie-indicator")
@@ -20,6 +21,9 @@ function getPrinterStatus(printer){
     const michaelangelo_indicator_id = document.getElementById("printer-michaelangelo-indicator")
     const michaelangelo_status_id = document.getElementById("printer-michaelangelo-status")
 
+    const donatello_state_id = document.getElementById("printer-donatello-state")
+    const donatello_indicator_id = document.getElementById("printer-donatello-indicator")
+    const donatello_status_id = document.getElementById("printer-donatello-status")
 
     const raphael_state_id = document.getElementById("printer-raphael-state")
     const raphael_indicator_id = document.getElementById("printer-raphael-indicator")
@@ -83,6 +87,12 @@ function getPrinterStatus(printer){
         var printer_indicator_id = michaelangelo_indicator_id
         var printer_status_id = michaelangelo_status_id
     }
+    else if (printer == "donatello"){
+        var url = printer_donatello
+        var printer_state_id = donatello_state_id
+        var printer_indicator_id = donatello_indicator_id
+        var printer_status_id = donatello_status_id
+    }
 
     fetch(url)
         .then(response => {
@@ -120,6 +130,7 @@ function getPrintjobInfo(printer){
     const printer_archie = "http://10.10.141.195/api/v1/print_job"
     const printer_raphael = "http://10.10.28.219/api/v1/print_job"
     const printer_michaelangelo = "http://10.10.141.196/api/v1/print_job"
+    const printer_donatello = "http://10.10.28.154/api/v1/print_job"
 
     const dx_printjob_id = document.getElementById("printer-dx-printjob")
     const jisi_printjob_id = document.getElementById("printer-jisi-printjob")
@@ -128,6 +139,7 @@ function getPrintjobInfo(printer){
     const archie_printjob_id = document.getElementById("printer-archie-printjob")
     const raphael_printjob_id = document.getElementById("printer-raphael-printjob")
     const michaelangelo_printjob_id = document.getElementById("printer-michaelangelo-printjob")
+    const donatello_printjob_id = document.getElementById("printer-donatello-printjob")
 
     const dx_time_id = document.getElementById("printer-dx-remainingTime")
     const jisi_time_id = document.getElementById("printer-jisi-remainingTime")
@@ -136,6 +148,7 @@ function getPrintjobInfo(printer){
     const archie_time_id = document.getElementById("printer-archie-remainingTime")
     const raphael_time_id = document.getElementById("printer-raphael-remainingTime")
     const michaelangelo_time_id = document.getElementById("printer-michaelangelo-remainingTime")
+    const donatello_time_id = document.getElementById("printer-donatello-remainingTime")
 
     if (printer == "dx"){
         var url = printer_dx
@@ -171,6 +184,11 @@ function getPrintjobInfo(printer){
         var url = printer_michaelangelo
         var printjob_id = michaelangelo_printjob_id
         var remainingTime_id = michaelangelo_time_id
+    }
+    else if (printer == "donatello"){
+        var url = printer_donatello
+        var printjob_id = donatello_printjob_id
+        var remainingTime_id = donatello_time_id
     }
 
     fetch(url)
@@ -240,4 +258,7 @@ setInterval(function(){
 
     getPrinterStatus("michaelangelo")
     getPrintjobInfo("michaelangelo")
+
+    getPrinterStatus("donatello")
+    getPrintjobInfo("donatello")
 }, 1000)

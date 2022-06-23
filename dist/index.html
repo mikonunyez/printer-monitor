@@ -47,18 +47,6 @@
         <h1>Ultimaker Print Job Monitor</h1>
     </div>
 
-    <!-- <div class="flex justify-center my-10 gap-10 text-center">
-        <div>
-            <h1 class="mb-2">Printers online</h1>
-            <p>DX (S3)</p>
-            <p>Jisi (S3)</p>
-        </div>
-        <div>
-            <h1 class="mb-2">Printers offline</h1>
-            <p>Dexter (S5)</p>
-        </div>
-    </div> -->
-
     <div class="bg-white py-10 min-h-screen">
         <div class="flex flex-wrap justify-center gap-20">
             <div id="dexter-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
@@ -274,6 +262,37 @@
                     </p>
                     <div class="mt-5">
                         <p id="printer-michaelangelo-remainingTime" class="text-lg text-center"> </p>
+                        <p class="text-center">time remaining</p>
+                    </div>
+                </div>
+            </div>
+            <div id="donatello-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
+                <div class="flex justify-center">
+                    <img class="h-48 my-3 px-5" src="./img/3-extended.png" alt="image of ultimaker s3">
+                </div>
+                <div class="px-5 font-bold truncate">
+                    <span id="printer-donatello-indicator" class="text-red-400">•</span>
+                    <span> Donatello (3 Extended)</span>
+                </div>
+                <div class="px-5 text-sm">
+                    <p>
+                        <span>Printer </span>
+                        <span id="printer-donatello-state">offline</span>
+                    </p>
+                    <p>
+                        <span>Address: </span>
+                        <span id="printer-donatello-ip">10.10.28.154</span>
+                    </p>
+                    <p class="mt-5">
+                        <span>Status: </span>
+                        <span id="printer-donatello-status"> </span>
+                    </p>
+                    <p class="truncate">
+                        <span>Filename: </span>
+                        <span id="printer-donatello-printjob"> </span>
+                    </p>
+                    <div class="mt-5">
+                        <p id="printer-donatello-remainingTime" class="text-lg text-center"> </p>
                         <p class="text-center">time remaining</p>
                     </div>
                 </div>
