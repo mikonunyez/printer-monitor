@@ -65,7 +65,7 @@
                 <div class="flex justify-center">
                     <img class="h-48 my-3 px-5" src="./img/s5.png" alt="image of ultimaker s3">
                 </div>
-                <div class="px-5 font-bold">
+                <div class="px-5 font-bold truncate">
                     <span id="printer-dexter-indicator" class="text-red-400">•</span>
                     <span> Dexter (S5)</span>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="flex justify-center">
                     <img class="h-48 my-3 px-5" src="./img/s3.png" alt="image of ultimaker s3">
                 </div>
-                <div class="px-5 font-bold">
+                <div class="px-5 font-bold truncate">
                     <span id="printer-dx-indicator" class="text-red-400">•</span>
                     <span> DX (S3)</span>
                 </div>
@@ -127,7 +127,7 @@
                 <div class="flex justify-center">
                     <img class="h-48 my-3 px-5" src="./img/s3.png" alt="image of ultimaker s3">
                 </div>
-                <div class="px-5 font-bold">
+                <div class="px-5 font-bold truncate">
                     <span id="printer-jisi-indicator" class="text-red-400">•</span>
                     <span> Jisi (S3)</span>
                 </div>
@@ -158,7 +158,7 @@
                 <div class="flex justify-center">
                     <img class="h-48 my-3 px-5" src="./img/s3.png" alt="image of ultimaker s3">
                 </div>
-                <div class="px-5 font-bold">
+                <div class="px-5 font-bold truncate">
                     <span id="printer-gee-indicator" class="text-red-400">•</span>
                     <span> Gee (S3)</span>
                 </div>
@@ -181,6 +181,37 @@
                     </p>
                     <div class="mt-5">
                         <p id="printer-gee-remainingTime" class="text-lg text-center"> </p>
+                        <p class="text-center">time remaining</p>
+                    </div>
+                </div>
+            </div>
+            <div id="raphael-container" class="py-5 w-52 bg-neutral-100 rounded-lg">
+                <div class="flex justify-center">
+                    <img class="h-48 my-3 px-5" src="./img/3-extended.png" alt="image of ultimaker s3">
+                </div>
+                <div class="px-5 font-bold truncate">
+                    <span id="printer-raphael-indicator" class="text-red-400">•</span>
+                    <span> Raphael (3 Extended)</span>
+                </div>
+                <div class="px-5 text-sm">
+                    <p>
+                        <span>Printer </span>
+                        <span id="printer-raphael-state">offline</span>
+                    </p>
+                    <p>
+                        <span>Address: </span>
+                        <span id="printer-raphael-ip">10.10.28.57</span>
+                    </p>
+                    <p class="mt-5">
+                        <span>Status: </span>
+                        <span id="printer-raphael-status"> </span>
+                    </p>
+                    <p class="truncate">
+                        <span>Filename: </span>
+                        <span id="printer-raphael-printjob"> </span>
+                    </p>
+                    <div class="mt-5">
+                        <p id="printer-raphael-remainingTime" class="text-lg text-center"> </p>
                         <p class="text-center">time remaining</p>
                     </div>
                 </div>

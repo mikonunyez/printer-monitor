@@ -3,6 +3,11 @@ function getPrinterStatus(printer){
     const printer_jisi = "http://10.10.28.182/api/v1/printer/status"
     const printer_dexter = "http://10.10.28.48/api/v1/printer/status"
     const printer_gee = "http://10.10.28.57/api/v1/printer/status"
+    const printer_raphael = "http://10.10.28.219/api/v1/printer/status"
+
+    const raphael_state_id = document.getElementById("printer-raphael-state")
+    const raphael_indicator_id = document.getElementById("printer-raphael-indicator")
+    const raphael_status_id = document.getElementById("printer-raphael-status")
 
     const gee_state_id = document.getElementById("printer-gee-state")
     const gee_indicator_id = document.getElementById("printer-gee-indicator")
@@ -44,6 +49,12 @@ function getPrinterStatus(printer){
         var printer_indicator_id = gee_indicator_id
         var printer_status_id = gee_status_id
     }
+    else if (printer == "raphael"){
+        var url = printer_raphael
+        var printer_state_id = raphael_state_id
+        var printer_indicator_id = raphael_indicator_id
+        var printer_status_id = raphael_status_id
+    }
 
     fetch(url)
         .then(response => {
@@ -78,16 +89,19 @@ function getPrintjobInfo(printer){
     const printer_jisi = "http://10.10.28.182/api/v1/print_job"
     const printer_dexter = "http://10.10.28.48/api/v1/print_job"
     const printer_gee = "http://10.10.28.57/api/v1/print_job"
+    const printer_raphael = "http://10.10.28.219/api/v1/print_job"
 
     const dx_printjob_id = document.getElementById("printer-dx-printjob")
     const jisi_printjob_id = document.getElementById("printer-jisi-printjob")
     const dexter_printjob_id = document.getElementById("printer-dexter-printjob")
     const gee_printjob_id = document.getElementById("printer-gee-printjob")
+    const raphael_printjob_id = document.getElementById("printer-raphael-printjob")
 
     const dx_time_id = document.getElementById("printer-dx-remainingTime")
     const jisi_time_id = document.getElementById("printer-jisi-remainingTime")
     const dexter_time_id = document.getElementById("printer-dexter-remainingTime")
     const gee_time_id = document.getElementById("printer-gee-remainingTime")
+    const raphael_time_id = document.getElementById("printer-raphael-remainingTime")
 
     if (printer == "dx"){
         var url = printer_dx
@@ -108,6 +122,11 @@ function getPrintjobInfo(printer){
         var url = printer_gee
         var printjob_id = gee_printjob_id
         var remainingTime_id = gee_time_id
+    }
+    else if (printer == "raphael"){
+        var url = printer_raphael
+        var printjob_id = raphael_printjob_id
+        var remainingTime_id = raphael_time_id
     }
 
     fetch(url)
@@ -168,4 +187,7 @@ setInterval(function(){
 
     getPrinterStatus("gee")
     getPrintjobInfo("gee")
+    
+    getPrinterStatus("raphael")
+    getPrintjobInfo("raphael")
 }, 1000)
