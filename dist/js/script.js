@@ -1,3 +1,31 @@
+function getPrinterUptime(printer){
+    const printer_michaelangelo = "http://10.10.141.196/api/v1/system/uptime"
+    const printer_archie ="http://10.10.141.195/api/v1/system/uptime"
+
+    if(printer == "michaelangelo"){
+        var url = printer_michaelangelo
+        var id = document.getElementById("printer-michaelangelo-uptime")
+    }
+    else if(printer == "archie"){
+        var url = printer_archie
+        var id = document.getElementById("printer-archie-uptime")
+    }
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok){
+            }
+            else{
+                response.json()
+                .then(data => {
+                    let printerUptime = secondsToHHMMSS(data)
+                    console.log("printer uptime is: " + printerUptime)
+                    id.firstChild.nodeValue = printerUptime
+                })
+            }
+        })
+}
+
 function getPrinterStatus(printer){
     const printer_archie = "http://10.10.141.195/api/v1/printer/status"
     const printer_michaelangelo = "http://10.10.141.196/api/v1/printer/status"
@@ -10,7 +38,6 @@ function getPrinterStatus(printer){
     const michaelangelo_state_id = document.getElementById("printer-michaelangelo-state")
     const michaelangelo_indicator_id = document.getElementById("printer-michaelangelo-indicator")
     const michaelangelo_status_id = document.getElementById("printer-michaelangelo-status")
-
 
 
     if(printer == "archie"){
@@ -131,4 +158,5 @@ setInterval(function(){
     getPrinterStatus("michaelangelo")
     getPrintjobInfo("michaelangelo")
 
+    getPrinterUptime("michaelangelo")
 }, 1000)
