@@ -56,72 +56,25 @@ function getPrinterStatus(printer){
 }
 
 function getPrintjobInfo(printer){
-    const printer_dx = "http://10.10.28.228/api/v1/print_job"
-    const printer_jisi = "http://10.10.28.182/api/v1/print_job"
-    const printer_dexter = "http://10.10.28.48/api/v1/print_job"
-    const printer_gee = "http://10.10.28.57/api/v1/print_job"
     const printer_archie = "http://10.10.141.195/api/v1/print_job"
-    const printer_raphael = "http://10.10.28.219/api/v1/print_job"
     const printer_michaelangelo = "http://10.10.141.196/api/v1/print_job"
-    const printer_donatello = "http://10.10.28.154/api/v1/print_job"
 
-    const dx_printjob_id = document.getElementById("printer-dx-printjob")
-    const jisi_printjob_id = document.getElementById("printer-jisi-printjob")
-    const dexter_printjob_id = document.getElementById("printer-dexter-printjob")
-    const gee_printjob_id = document.getElementById("printer-gee-printjob")
     const archie_printjob_id = document.getElementById("printer-archie-printjob")
-    const raphael_printjob_id = document.getElementById("printer-raphael-printjob")
     const michaelangelo_printjob_id = document.getElementById("printer-michaelangelo-printjob")
-    const donatello_printjob_id = document.getElementById("printer-donatello-printjob")
 
-    const dx_time_id = document.getElementById("printer-dx-remainingTime")
-    const jisi_time_id = document.getElementById("printer-jisi-remainingTime")
-    const dexter_time_id = document.getElementById("printer-dexter-remainingTime")
-    const gee_time_id = document.getElementById("printer-gee-remainingTime")
     const archie_time_id = document.getElementById("printer-archie-remainingTime")
-    const raphael_time_id = document.getElementById("printer-raphael-remainingTime")
     const michaelangelo_time_id = document.getElementById("printer-michaelangelo-remainingTime")
-    const donatello_time_id = document.getElementById("printer-donatello-remainingTime")
 
-    if (printer == "dx"){
-        var url = printer_dx
-        var printjob_id = dx_printjob_id
-        var remainingTime_id = dx_time_id
-    }
-    else if (printer == "jisi"){
-        var url = printer_jisi
-        var printjob_id = jisi_printjob_id
-        var remainingTime_id = jisi_time_id
-    }
-    else if (printer == "dexter"){
-        var url = printer_dexter
-        var printjob_id = dexter_printjob_id
-        var remainingTime_id = dexter_time_id
-    }
-    else if (printer == "gee"){
-        var url = printer_gee
-        var printjob_id = gee_printjob_id
-        var remainingTime_id = gee_time_id
-    }
-    else if (printer == "archie"){
+    
+    if (printer == "archie"){
         var url = printer_archie
         var printjob_id = archie_printjob_id
         var remainingTime_id = archie_time_id
-    }
-    else if (printer == "raphael"){
-        var url = printer_raphael
-        var printjob_id = raphael_printjob_id
-        var remainingTime_id = raphael_time_id
     }
     else if (printer == "michaelangelo"){
         var url = printer_michaelangelo
         var printjob_id = michaelangelo_printjob_id
         var remainingTime_id = michaelangelo_time_id
-    }
-    else if (printer == "donatello"){
-        var url = printer_donatello
-        var printjob_id = donatello_printjob_id
-        var remainingTime_id = donatello_time_id
     }
 
     fetch(url)
@@ -172,27 +125,10 @@ function secondsToHHMMSS(seconds){
 }
 
 setInterval(function(){
-    getPrinterStatus("dx")
-    getPrintjobInfo("dx")
-
-    getPrinterStatus("jisi")
-    getPrintjobInfo("jisi")
-
-    getPrinterStatus("dexter")
-    getPrintjobInfo("dexter")
-
-    getPrinterStatus("gee")
-    getPrintjobInfo("gee")
-
     getPrinterStatus("archie")
     getPrintjobInfo("archie")
     
-    getPrinterStatus("raphael")
-    getPrintjobInfo("raphael")
-
     getPrinterStatus("michaelangelo")
     getPrintjobInfo("michaelangelo")
 
-    getPrinterStatus("donatello")
-    getPrintjobInfo("donatello")
 }, 1000)
