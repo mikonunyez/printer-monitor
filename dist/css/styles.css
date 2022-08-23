@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.4 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -355,13 +355,6 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   /* 2 */
 }
 
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
@@ -583,10 +576,6 @@ video {
   margin-bottom: 0.75rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -599,12 +588,28 @@ video {
   aspect-ratio: 16 / 9;
 }
 
+.aspect-auto {
+  aspect-ratio: auto;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
 .h-60 {
   height: 15rem;
 }
 
 .h-48 {
   height: 12rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.h-96 {
+  height: 24rem;
 }
 
 .min-h-screen {
@@ -617,6 +622,10 @@ video {
 
 .w-52 {
   width: 13rem;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .grow {
@@ -641,19 +650,6 @@ video {
 
 .gap-20 {
   gap: 5rem;
-}
-
-.gap-x-10 {
-  -moz-column-gap: 2.5rem;
-       column-gap: 2.5rem;
-}
-
-.gap-y-0 {
-  row-gap: 0px;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .truncate {
