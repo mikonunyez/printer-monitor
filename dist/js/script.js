@@ -5,7 +5,7 @@ function getPrinterStatus(printer){
 
     // S3
     const printer_jisi = "http://10.10.28.182/api/v1/printer/status"
-    const printer_dx = "http://10.10.28.228/api/v1/printer/status"
+    const printer_dx = "http://10.10.28.128/api/v1/printer/status"
     const printer_gee = "http://10.10.28.57/api/v1/printer/status"
     const printer_archie = "http://10.10.141.195/api/v1/printer/status"
 
@@ -124,7 +124,7 @@ function getPrinterStatus(printer){
 }
 
 function getPrintjobInfo(printer){
-    const printer_dx = "http://10.10.28.228/api/v1/print_job"
+    const printer_dx = "http://10.10.28.128/api/v1/print_job"
     const printer_jisi = "http://10.10.28.182/api/v1/print_job"
     const printer_dexter = "http://10.10.28.245/api/v1/print_job"
     const printer_gee = "http://10.10.28.57/api/v1/print_job"
@@ -206,7 +206,7 @@ function getPrintjobInfo(printer){
                     let timeRemaining = data.time_total - data.time_elapsed
                     // console.log(data.result)
                     if(data.result == "Finished"){
-                        printjob_id.firstChild.nodeValue = data.result
+                        printjob_id.firstChild.nodeValue = " "
                         remainingTime_id.firstChild.nodeValue = "00:00:00"
                     }
                     else{
