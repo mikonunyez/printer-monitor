@@ -4,15 +4,15 @@ function getPrinterStatus(printer){
 
 
     // S3
-    const printer_jisi = "http://10.10.28.182/api/v1/printer/status"
+    const printer_jisi = "http://10.10.28.235/api/v1/printer/status"
     const printer_dx = "http://10.10.28.128/api/v1/printer/status"
-    const printer_gee = "http://10.10.28.57/api/v1/printer/status"
+    const printer_gee = "http://10.10.28.167/api/v1/printer/status"
     const printer_archie = "http://10.10.141.195/api/v1/printer/status"
 
     // 3 extended
-    const printer_raphael = "http://10.10.28.219/api/v1/printer/status"
+    const printer_raphael = "http://10.10.28.108/api/v1/printer/status"
     const printer_michaelangelo = "http://10.10.141.196/api/v1/printer/status"
-    const printer_donatello = "http://10.10.28.154/api/v1/printer/status"
+    const printer_donatello = "http://10.10.28.101/api/v1/printer/status"
 
     const archie_state_id = document.getElementById("printer-archie-state")
     const archie_indicator_id = document.getElementById("printer-archie-indicator")
@@ -125,13 +125,13 @@ function getPrinterStatus(printer){
 
 function getPrintjobInfo(printer){
     const printer_dx = "http://10.10.28.128/api/v1/print_job"
-    const printer_jisi = "http://10.10.28.182/api/v1/print_job"
+    const printer_jisi = "http://10.10.28.235/api/v1/print_job"
     const printer_dexter = "http://10.10.28.245/api/v1/print_job"
-    const printer_gee = "http://10.10.28.57/api/v1/print_job"
+    const printer_gee = "http://10.10.28.167/api/v1/print_job"
     const printer_archie = "http://10.10.141.195/api/v1/print_job"
-    const printer_raphael = "http://10.10.28.219/api/v1/print_job"
+    const printer_raphael = "http://10.10.28.108/api/v1/print_job"
     const printer_michaelangelo = "http://10.10.141.196/api/v1/print_job"
-    const printer_donatello = "http://10.10.28.154/api/v1/print_job"
+    const printer_donatello = "http://10.10.28.101/api/v1/print_job"
 
     const dx_printjob_id = document.getElementById("printer-dx-printjob")
     const jisi_printjob_id = document.getElementById("printer-jisi-printjob")
