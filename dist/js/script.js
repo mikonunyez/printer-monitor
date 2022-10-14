@@ -1,18 +1,36 @@
 // 
 // GLOBAL VARIABLES FOR PRINTER IP ADDRESSES
 // 
-const printer_dexter_ip = "http://10.10.28.245/" // S5
+var printer_dexter_ip = "http://10.10.28.245/" // S5
 
 // S3
-const printer_jisi_ip = "http://10.10.28.235/"
-const printer_dx_ip = "http://10.10.28.128/"
-const printer_gee_ip = "http://10.10.28.167/"
-const printer_archie_ip = "http://10.10.138.35/"
+var printer_jisi_ip = "http://10.10.28.235/"
+var printer_dx_ip = "http://10.10.28.128/"
+var printer_gee_ip = "http://10.10.28.167/"
+var printer_archie_ip = "http://10.10.138.35/"
 
 // 3 extended
-const printer_raphael_ip = "http://10.10.28.108/"
-const printer_michaelangelo_ip = "http://10.10.141.196/"
-const printer_donatello_ip = "http://10.10.28.101/"
+var printer_raphael_ip = "http://10.10.28.108/"
+var printer_michaelangelo_ip = "http://10.10.141.196/"
+var printer_donatello_ip = "http://10.10.28.101/"
+
+
+var requestInterval = 1000 // interval, in miliseconds, to send requests to the printer APIs
+
+
+// 
+// GLOBAL VARIABLES FOR PRINTER NAMES
+// 
+var printers = [
+    "dx",
+    "jisi",
+    "dexter",
+    "gee",
+    "archie",
+    "raphael",
+    "michaelangelo",
+    "donatello"
+]
 
 
 
@@ -192,6 +210,7 @@ function getPrintjobInfo(printer){
                 printjob_id.firstChild.nodeValue = " "
                 remainingTime_id.firstChild.nodeValue = " "
                 console.log("no print job for printer " + printer)
+                numPrintersInUse--;
             }
             else {
                 response.json()
@@ -205,7 +224,6 @@ function getPrintjobInfo(printer){
                     }
                     else{
                         remainingTime_id.firstChild.nodeValue = secondsToHHMMSS(timeRemaining)
-
                     }
 
                     printjob_id.firstChild.nodeValue = filename
@@ -220,6 +238,7 @@ function getPrintjobInfo(printer){
 }
 
 
+
 // utility function. takes time in seconds and returns an HHMMSS format
 function secondsToHHMMSS(seconds){ 
     var hours   = Math.floor(seconds / 3600);
@@ -232,28 +251,9 @@ function secondsToHHMMSS(seconds){
     return hours+':'+minutes+':'+seconds;
 }
 
-setInterval(function(){
-    getPrinterStatus("dx")
-    getPrintjobInfo("dx")
-
-    getPrinterStatus("jisi")
-    getPrintjobInfo("jisi")
-
-    getPrinterStatus("dexter")
-    getPrintjobInfo("dexter")
-
-    getPrinterStatus("gee")
-    getPrintjobInfo("gee")
-
-    getPrinterStatus("archie")
-    getPrintjobInfo("archie")
-    
-    getPrinterStatus("raphael")
-    getPrintjobInfo("raphael")
-
-    getPrinterStatus("michaelangelo")
-    getPrintjobInfo("michaelangelo")
-
-    getPrinterStatus("donatello")
-    getPrintjobInfo("donatello")
-}, 1000)
+setInterval(function(){ // sends requests to the printer API every set interval
+    printers.forEach(element => {
+        getPrinterStatus(element)
+        getPrintjobInfo(element)
+    });
+}, requestInterval)
