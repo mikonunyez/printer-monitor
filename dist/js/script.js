@@ -209,8 +209,7 @@ function getPrintjobInfo(printer){
             if (!response.ok){
                 printjob_id.firstChild.nodeValue = " "
                 remainingTime_id.firstChild.nodeValue = " "
-                console.log("no print job for printer " + printer)
-                numPrintersInUse--;
+                console.log("no print job for printer " + printer)            
             }
             else {
                 response.json()
