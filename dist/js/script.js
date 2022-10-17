@@ -154,9 +154,7 @@ function getPrinterStatus(printer){
             printer_indicator_id.classList.add("text-red-400")
             console.log("Printer " + printer + " offline")
 
-            printersOffline++
-            // console.log("Printers offline: " + printersOffline)
-
+            printersOffline = printers.length - printersOnline
             document.getElementById("printers-offline").firstChild.nodeValue = printersOffline
         })
 }
@@ -275,6 +273,10 @@ function secondsToHHMMSS(seconds){
 }
 
 setInterval(function(){ // sends requests to the printer API every set interval
+    foo()   
+}, requestInterval)
+
+function foo(){
     printersOnline = 0
     printersOffline = 0
     printersInUse = 0
@@ -284,4 +286,6 @@ setInterval(function(){ // sends requests to the printer API every set interval
         getPrinterStatus(element)
         getPrintjobInfo(element)
     });
-}, requestInterval)
+}
+
+foo()
