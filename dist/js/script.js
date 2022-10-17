@@ -226,9 +226,16 @@ function getPrintjobInfo(printer){
             if (!response.ok){
                 printjob_id.firstChild.nodeValue = " "
                 remainingTime_id.firstChild.nodeValue = " "
-                console.log("no print job for printer " + printer)            
+                console.log("no print job for printer " + printer)
+                
+                printersAvailable++
+                document.getElementById("printers-available").firstChild.nodeValue = printersAvailable
             }
             else {
+
+                printersInUse++
+                document.getElementById("printers-in-use").firstChild.nodeValue = printersInUse
+
                 response.json()
                 .then(data=> {
                     let filename = data.name
