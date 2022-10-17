@@ -1,7 +1,8 @@
 // 
 // GLOBAL VARIABLES FOR PRINTER IP ADDRESSES
 // 
-var printer_dexter_ip = "http://10.10.28.245/" // S5
+// S5
+var printer_dexter_ip = "http://10.10.28.245/" 
 
 // S3
 var printer_jisi_ip = "http://10.10.28.235/"
@@ -15,8 +16,8 @@ var printer_michaelangelo_ip = "http://10.10.141.196/"
 var printer_donatello_ip = "http://10.10.28.101/"
 
 
-var requestInterval = 1000 // interval, in miliseconds, to send requests to the printer APIs
-
+var requestInterval = 5000 // interval, in miliseconds, to send requests to the printer APIs
+document.getElementById("request-interval").firstChild.nodeValue = requestInterval/1000
 
 // 
 // GLOBAL VARIABLES FOR PRINTER NAMES
@@ -32,6 +33,11 @@ var printers = [
     "donatello"
 ]
 
+
+var printersOnline
+var printersOffline
+var printersInUse
+var printersAvailable
 
 
 function getPrinterStatus(printer){    
@@ -119,11 +125,14 @@ function getPrinterStatus(printer){
     fetch(url + "api/v1/printer/status")
         .then(response => {
             if (!response.ok){
+
             }
             else {
                 response.json()
                 .then(data => {
                     let printerStatus = data
+
+                    printersOnline++
                     
                     // changes the online/offline status of the printer
                     printer_state_id.firstChild.nodeValue = "online"
@@ -132,6 +141,9 @@ function getPrinterStatus(printer){
                     
                     // updates the printer printing status
                     printer_status_id.firstChild.nodeValue = printerStatus
+
+                    // updates printerOnline counter
+                    document.getElementById("printers-online").firstChild.nodeValue = printersOnline
                 })
             }
         })
@@ -141,6 +153,11 @@ function getPrinterStatus(printer){
             printer_indicator_id.classList.remove("text-green-400")
             printer_indicator_id.classList.add("text-red-400")
             console.log("Printer " + printer + " offline")
+
+            printersOffline++
+            // console.log("Printers offline: " + printersOffline)
+
+            document.getElementById("printers-offline").firstChild.nodeValue = printersOffline
         })
 }
 
@@ -251,6 +268,11 @@ function secondsToHHMMSS(seconds){
 }
 
 setInterval(function(){ // sends requests to the printer API every set interval
+    printersOnline = 0
+    printersOffline = 0
+    printersInUse = 0
+    printersAvailable = 0
+    
     printers.forEach(element => {
         getPrinterStatus(element)
         getPrintjobInfo(element)

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/styles.css">
 
     <!-- javascript -->
-    <script src="./js/script.js"></script>
+    <script defer src="./js/script.js"></script>
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="./img/icon/apple-icon-57x57.png">
@@ -48,7 +48,32 @@
             <h1 class="text-2xl">Ultimaker Dashboard</h1>
             <i class="text-sm">Please keep this window in the foreground</i>
         </div>
+    </div>
 
+    <div class="fixed left-4 bottom-4 p-4 text-sm rounded-md bg-white drop-shadow-lg">
+        <div>
+            Online Printers: 
+            <span id="printers-online"> </span>
+        </div>
+        <div>
+            Offline Printers: 
+            <span id="printers-offline"> </span>
+        </div>
+        <br>
+        <div>
+            Printers In-Use: 
+            <span id="printers-in-use"> </span>
+        </div>
+        <div>
+            Available Printers: 
+            <span id="printers-available"> </span>
+        </div>
+        <br>
+        <i>
+            Updated every
+            <span id="request-interval"> 0 </span>
+            seconds
+        </i>
     </div>
 
     <div class="py-10">
