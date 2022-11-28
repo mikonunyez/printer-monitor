@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/styles.css">
 
     <!-- javascript -->
-    <script defer src="./js/script.js"></script>
+    <!-- <script defer src="./js/script.js"></script> -->
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="./img/icon/apple-icon-57x57.png">
@@ -50,7 +50,42 @@
         </div>
     </div>
 
+
     <div class="fixed left-4 bottom-4 p-4 text-sm rounded-md bg-white drop-shadow-lg">
+        <details close>
+            <summary class="font-semibold">
+                <span id="printers-available">0</span> printers available
+            </summary>
+            <div>
+                <div>
+                    Online Printers: 
+                    <span id="printers-online"> </span>
+                </div>
+                <div>
+                    Offline Printers: 
+                    <span id="printers-offline"> </span>
+                </div>
+                <br>
+                <div>
+                    Printers In-Use: 
+                    <span id="printers-in-use">0</span>
+                </div>
+                <!-- <div>
+                    Available Printers: 
+                    <span id="printers-available"> </span>
+                </div> -->
+                <br>
+                <i>
+                    Updated every
+                    <span id="request-interval"> 0 </span>
+                    seconds
+                </i>
+            </div>
+        </details>
+    </div>
+
+
+    <!-- <div class="fixed left-4 bottom-4 p-4 text-sm rounded-md bg-white drop-shadow-lg">
         <div>
             Online Printers: 
             <span id="printers-online"> </span>
@@ -74,7 +109,8 @@
             <span id="request-interval"> 0 </span>
             seconds
         </i>
-    </div>
+    </div> -->
+
 
     <div class="py-10">
         <div class="flex flex-wrap justify-center gap-20">

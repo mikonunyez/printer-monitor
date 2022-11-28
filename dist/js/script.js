@@ -34,6 +34,9 @@ var printers = [
 ]
 
 
+//
+// printer status counters
+//
 var printersOnline
 var printersOffline
 var printersInUse
