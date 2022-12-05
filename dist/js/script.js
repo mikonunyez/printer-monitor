@@ -264,9 +264,37 @@ function getPrintjobInfo(printer){
 
 
 function getPrintProgress(printer){
-    if (printer=="dx"){
+    if (printer == "dx"){
         url = printer_dx_ip
         printProgress_id = document.getElementById("dx-progress")
+    }
+    else if (printer == "jisi"){
+        url = printer_jisi_ip
+        printProgress_id = document.getElementById("jisi-progress")
+    }
+    else if (printer == "dexter"){
+        url = printer_dexter_ip
+        printProgress_id = document.getElementById("dexter-progress")
+    }
+    else if (printer == "gee"){
+        url = printer_gee_ip
+        printProgress_id = document.getElementById("gee-progress")
+    }
+    else if (printer == "archie"){
+        url = printer_archie_ip
+        printProgress_id = document.getElementById("archie-progress")
+    }
+    else if (printer == "raphael"){
+        url = printer_raphael_ip
+        printProgress_id = document.getElementById("raphael-progress")
+    }
+    else if (printer == "michaelangelo"){
+        url = printer_michaelangelo_ip
+        printProgress_id = document.getElementById("michaelangelo-progress")
+    }
+    else if (printer == "donatello"){
+        url = printer_donatello_ip
+        printProgress_id = document.getElementById("donatello-progress")
     }
 
     fetch(url + "/api/v1/print_job/progress")
