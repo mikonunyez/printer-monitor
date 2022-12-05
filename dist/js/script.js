@@ -275,8 +275,7 @@ function getPrintProgress(printer){
             else{
                 response.json()
                 .then(data => {
-                    printProgress_id.firstChild.nodeValue = data*10
-                    console.log(data)
+                    printProgress_id.firstChild.nodeValue = (data*10).toFixed(2)
                 })
             }
         })
