@@ -5,9 +5,9 @@
 var printer_dexter_ip = "http://10.10.28.245/" 
 
 // S3
-var printer_jisi_ip = "http://10.10.28.235/"
+var printer_jisi_ip = "http://10.10.28.64/"
 var printer_dx_ip = "http://10.10.28.25/"
-var printer_gee_ip = "http://10.10.28.167/"
+var printer_gee_ip = "http://10.10.28.92/"
 var printer_archie_ip = "http://10.10.138.35/"
 
 // 3 extended
@@ -16,7 +16,7 @@ var printer_michaelangelo_ip = "http://10.10.141.196/"
 var printer_donatello_ip = "http://10.10.28.101/"
 
 
-var requestInterval = 1000 // interval, in miliseconds, to send requests to the printer APIs
+var requestInterval = 5000 // interval, in miliseconds, to send requests to the printer APIs
 document.getElementById("request-interval").firstChild.nodeValue = requestInterval/1000
 
 // 
@@ -264,6 +264,8 @@ function getPrintjobInfo(printer){
 
 
 function getPrintProgress(printer){
+    let printProgress_id
+
     if (printer == "dx"){
         url = printer_dx_ip
         printProgress_id = document.getElementById("dx-progress")
@@ -297,7 +299,7 @@ function getPrintProgress(printer){
         printProgress_id = document.getElementById("donatello-progress")
     }
 
-    fetch(url + "/api/v1/print_job/progress")
+    fetch(url + "api/v1/print_job/progress")
         .then(response => {
             if(!response.ok){}
             else{
@@ -335,7 +337,7 @@ function foo(){
     printers.forEach(element => {
         getPrinterStatus(element)
         getPrintjobInfo(element)
-        getPrintProgress("dx")
+        getPrintProgress(element)
     });
 
     printersAvailable = printersOnline = printersOffline
