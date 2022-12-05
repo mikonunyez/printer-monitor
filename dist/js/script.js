@@ -1,4 +1,3 @@
-
 // 
 // GLOBAL VARIABLES FOR PRINTER IP ADDRESSES
 // 
@@ -7,7 +6,7 @@ var printer_dexter_ip = "http://10.10.28.245/"
 
 // S3
 var printer_jisi_ip = "http://10.10.28.235/"
-var printer_dx_ip = "http://10.10.28.128/"
+var printer_dx_ip = "http://10.10.28.25/"
 var printer_gee_ip = "http://10.10.28.167/"
 var printer_archie_ip = "http://10.10.138.35/"
 
@@ -17,7 +16,7 @@ var printer_michaelangelo_ip = "http://10.10.141.196/"
 var printer_donatello_ip = "http://10.10.28.101/"
 
 
-var requestInterval = 5000 // interval, in miliseconds, to send requests to the printer APIs
+var requestInterval = 1000 // interval, in miliseconds, to send requests to the printer APIs
 document.getElementById("request-interval").firstChild.nodeValue = requestInterval/1000
 
 // 
@@ -264,6 +263,26 @@ function getPrintjobInfo(printer){
 
 
 
+function getPrintProgress(printer){
+    if (printer=="dx"){
+        url = printer_dx_ip
+        printProgress_id = document.getElementById("dx-progress")
+    }
+
+    fetch(url + "/api/v1/print_job/progress")
+        .then(response => {
+            if(!response.ok){}
+            else{
+                response.json()
+                .then(data => {
+                    printProgress_id.firstChild.nodeValue = data*10
+                    console.log(data)
+                })
+            }
+        })
+}
+
+
 // utility function. takes time in seconds and returns an HHMMSS format
 function secondsToHHMMSS(seconds){ 
     var hours   = Math.floor(seconds / 3600);
@@ -289,7 +308,10 @@ function foo(){
     printers.forEach(element => {
         getPrinterStatus(element)
         getPrintjobInfo(element)
+        getPrintProgress("dx")
     });
+
+    printersAvailable = printersOnline = printersOffline
 }
 
-foo()
+// foo()

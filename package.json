@@ -1,5 +1,8 @@
 {
     "scripts": {
         "tailwindcss-helper": "npx tailwindcss -i ./src/tailwindcss.css -o ./dist/css/styles.css --watch"
+    },
+    "dependencies": {
+        "progressbar.js": "^1.1.0"
     }
 }
