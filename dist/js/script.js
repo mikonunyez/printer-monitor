@@ -1,5 +1,6 @@
 // 
 // GLOBAL VARIABLES FOR PRINTER IP ADDRESSES
+// this is a potential security issue
 // 
 // S5
 var printer_dexter_ip = "http://10.10.28.245/" 
