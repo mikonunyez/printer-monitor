@@ -12,6 +12,7 @@
     <!-- javascript -->
     <!-- <script defer src="./js/require.js"></script> -->
     <script defer src="./js/script.js"></script>
+    <script defer src="./js/progressbar.js"></script>
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="./img/icon/apple-icon-57x57.png">
@@ -80,33 +81,6 @@
     </div>
 
 
-    <!-- <div class="fixed left-4 bottom-4 p-4 text-sm rounded-md bg-white drop-shadow-lg">
-        <div>
-            Online Printers: 
-            <span id="printers-online"> </span>
-        </div>
-        <div>
-            Offline Printers: 
-            <span id="printers-offline"> </span>
-        </div>
-        <br>
-        <div>
-            Printers In-Use: 
-            <span id="printers-in-use">0</span>
-        </div>
-        <div>
-            Available Printers: 
-            <span id="printers-available"> </span>
-        </div>
-        <br>
-        <i>
-            Updated every
-            <span id="request-interval"> 0 </span>
-            seconds
-        </i>
-    </div> -->
-
-
     <div class="py-10">
         <div class="flex flex-wrap justify-center gap-20">
             <div id="dexter-container" class="card-primary">
@@ -142,6 +116,10 @@
                         <p>
                             <span id="dexter-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="dexter-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -178,6 +156,10 @@
                         <p>
                             <span id="dx-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="dx-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -214,6 +196,10 @@
                         <p>
                             <span id="jisi-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="jisi-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -250,6 +236,10 @@
                         <p>
                             <span id="gee-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="gee-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -286,6 +276,10 @@
                         <p>
                             <span id="archie-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="archie-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -322,6 +316,10 @@
                         <p>
                             <span id="raphael-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="raphael-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -358,6 +356,10 @@
                         <p>
                             <span id="michaelangelo-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="michaelangelo-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -394,6 +396,10 @@
                         <p>
                             <span id="donatello-progress"> </span>%
                         </p>
+                        <div class="w-full h-2 bg-gray-200 rounded-full">
+                            <div id="donatello-progressbar" class="w-0 h-full bg-green-300">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

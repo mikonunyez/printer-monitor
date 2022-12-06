@@ -306,6 +306,7 @@ function getPrintProgress(printer){
                 response.json()
                 .then(data => {
                     printProgress_id.firstChild.nodeValue = (data*100).toFixed(0)
+                    updateProgressBar(printer, data)
                 })
             }
         })
