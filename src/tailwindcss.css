@@ -9,4 +9,10 @@
     .btn-primary {
         @apply mx-7 px-2 rounded-md text-sm bg-neutral-300 hover:bg-neutral-400 transition-colors;
     }
+    .progressbar-bg{
+        @apply w-full h-2 bg-gray-200 rounded-full;
+    }
+    .progressbar-inner{
+        @apply w-0 h-full bg-green-500 rounded-full;
+    }
 }
