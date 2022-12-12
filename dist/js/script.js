@@ -1,7 +1,7 @@
-// 
-// GLOBAL VARIABLES FOR PRINTER IP ADDRESSES
-// this is a potential security issue
-// 
+
+// GLOBAL VARIABLES FOR PRINTER IP ADDRESSES (defaults)
+// this is a potential security issue if you want the addresses hidden
+
 // S5
 var printer_dexter_ip = "http://10.10.28.245/" 
 
@@ -17,12 +17,37 @@ var printer_michaelangelo_ip = "http://10.10.141.196/"
 var printer_donatello_ip = "http://10.10.28.101/"
 
 
-var requestInterval = 5000 // interval, in miliseconds, to send requests to the printer APIs
-document.getElementById("request-interval").firstChild.nodeValue = requestInterval/1000
+// var requestInterval = 5000 // interval, in miliseconds, to send requests to the printer APIs
 
 // 
 // GLOBAL VARIABLES FOR PRINTER NAMES
 // 
+
+
+fetch('../config.json')
+.then((response) => response.json())
+.then((json) => {
+    printer_dexter_ip = json.dexter_ip
+    printer_jisi_ip = json.jisi_ip
+    printer_dx_ip = json.dx_ip
+    printer_gee_ip = json.gee_ip
+    printer_archie_ip = json.archie_ip
+    printer_raphael_ip = json.raphael_ip
+    printer_michaelangelo_ip = json.michaelangelo_ip
+    
+    const requestInterval = json.requestInterval
+    
+    document.getElementById("request-interval").firstChild.nodeValue = requestInterval/1000
+        
+    setInterval(function(){ // sends requests to the printer API every set interval
+        foo()   
+        }, requestInterval)
+    }
+    )
+
+
+
+
 var printers = [
     "dx",
     "jisi",
@@ -326,9 +351,7 @@ function secondsToHHMMSS(seconds){
     return hours+':'+minutes+':'+seconds;
 }
 
-setInterval(function(){ // sends requests to the printer API every set interval
-    foo()   
-}, requestInterval)
+
 
 function foo(){
     printersOnline = 0
@@ -344,5 +367,7 @@ function foo(){
 
     printersAvailable = printersOnline = printersOffline
 }
+
+
 
 // foo()
