@@ -365,6 +365,10 @@ function foo(){
         getPrintProgress(element)
     });
 
+    if (printersOnline == 0) {
+        alert("There are no online printers. Check the printers' connection or update their IP addresses in the config file")
+    }
+
     printersAvailable = printersOnline = printersOffline
 }
 
