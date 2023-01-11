@@ -1,5 +1,8 @@
 {
     "scripts": {
         "tailwindcss-helper": "npx tailwindcss -i ./src/tailwindcss.css -o ./dist/css/styles.css --watch"
+    },
+    "dependencies": {
+        "tailwindcss": "^3.2.4"
     }
 }
