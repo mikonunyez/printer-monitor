@@ -1,5 +1,6 @@
 
 // GLOBAL VARIABLES FOR PRINTER IP ADDRESSES (defaults)
+// the IP addresses to be used is found in config.json
 // this is a potential security issue if you want the addresses hidden
 
 // S5
@@ -365,9 +366,10 @@ function foo(){
         getPrintProgress(element)
     });
 
+    if (printersOffline == 0 && printersOnline == 0){
+        document.getElementById("alert-banner").classList.remove("hidden")
+    }
+
+
     printersAvailable = printersOnline = printersOffline
 }
-
-
-
-// foo()
