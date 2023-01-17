@@ -354,6 +354,49 @@ function secondsToHHMMSS(seconds){
 
 
 
+function updatePrinterIP(printer){
+    let id
+
+
+    if (printer == "dx"){
+        id = document.getElementById("printer-dx-ip")
+        id.firstChild.nodeValue = printer_dx_ip
+    }
+    else if (printer == "jisi"){
+        id = document.getElementById("printer-jisi-ip")
+        id.firstChild.nodeValue = printer_jisi_ip
+
+    }
+    else if (printer == "dexter"){
+        id = document.getElementById("printer-dexter-ip")
+        id.firstChild.nodeValue = printer_dexter_ip
+    }
+    else if (printer == "gee"){
+        id = document.getElementById("printer-gee-ip")
+        id.firstChild.nodeValue = printer_gee_ip
+    }
+    else if (printer == "archie"){
+        id = document.getElementById("printer-archie-ip")
+        id.firstChild.nodeValue = printer_archie_ip
+    }
+    else if (printer == "raphael"){
+        id = document.getElementById("printer-raphael-ip")
+        id.firstChild.nodeValue = printer_raphael_ip
+    }
+    else if (printer == "michaelangelo"){
+        id = document.getElementById("printer-michaelangelo-ip")
+        id.firstChild.nodeValue = printer_michaelangelo_ip
+    }
+    else if (printer == "donatello"){
+        ip = document.getElementById("printer-donatello-ip")
+        id.firstChild.nodeValue = printer_michaelangelo_ip
+    }
+
+
+}
+
+
+
 function foo(){
     printersOnline = 0
     printersOffline = 0
@@ -361,6 +404,7 @@ function foo(){
     printersAvailable = 0
     
     printers.forEach(element => {
+        updatePrinterIP(element)
         getPrinterStatus(element)
         getPrintjobInfo(element)
         getPrintProgress(element)
