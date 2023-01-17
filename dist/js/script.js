@@ -388,7 +388,7 @@ function updatePrinterIP(printer){
         id.firstChild.nodeValue = printer_michaelangelo_ip
     }
     else if (printer == "donatello"){
-        ip = document.getElementById("printer-donatello-ip")
+        id = document.getElementById("printer-donatello-ip")
         id.firstChild.nodeValue = printer_michaelangelo_ip
     }
 
