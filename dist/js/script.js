@@ -409,10 +409,14 @@ function foo(){
         getPrintjobInfo(element)
         getPrintProgress(element)
     });
+    
+    // if (printersOnline == 0){
+    //     document.getElementById("alert-banner").classList.remove("hidden")
+    // }
 
-    if (printersOffline == 0 && printersOnline == 0){
-        document.getElementById("alert-banner").classList.remove("hidden")
-    }
+    // if (printersOnline != 0 || printersAvailable != 0){
+    //     document.getElementById("alert-banner").classList.add("hidden")
+    // }
 
 
     printersAvailable = printersOnline = printersOffline
